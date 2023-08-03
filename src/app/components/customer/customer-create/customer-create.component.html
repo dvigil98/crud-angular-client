@@ -1,0 +1,65 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="font-weight-bold">Clientes</h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/admin/dashboard" href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/admin/customers" href="#">Lista de clientes</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Agregar cliente</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="#" method="post" [formGroup]="form" (ngSubmit)="saveCustomer()">
+                        <div class="card">
+                            <div class="card-header d-flex align-items-center">
+                                <h3 class="card-title">Agregar cliente</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="name">Nombre: <small *ngIf="(form.get('name')?.errors?.['required'] && submitted) || (form.get('name')?.errors?.['required'] && form.get('name')?.dirty)" class="text-danger">El nombre es requerido *</small> </label>
+                                            <input type="text" name="name" id="name" formControlName="name" class="form-control" placeholder="Nombre..." [ngClass]="{'border-danger' : (form.get('name')?.errors?.['required'] && submitted) || (form.get('name')?.errors?.['required'] && form.get('name')?.dirty)}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Teléfono: <small *ngIf="(form.get('phone')?.errors?.['required'] && submitted) || (form.get('phone')?.errors?.['required'] && form.get('phone')?.dirty)" class="text-danger">El teléfono es requerido *</small> </label>
+                                            <input type="text" name="phone" id="phone" formControlName="phone" class="form-control" placeholder="Teléfono..." [ngClass]="{'border-danger' : (form.get('phone')?.errors?.['required'] && submitted) || (form.get('phone')?.errors?.['required'] && form.get('phone')?.dirty)}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="email">Email: <small *ngIf="(form.get('email')?.errors?.['required'] && submitted) || (form.get('email')?.errors?.['required'] && form.get('email')?.dirty)" class="text-danger">El email es requerido *</small> <small *ngIf="form.get('email')?.errors?.['email']" class="text-danger">El email debe ser válido *</small> </label>
+                                            <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="Email..." [ngClass]="{'border-danger' : (form.get('email')?.errors?.['required'] && submitted) || (form.get('email')?.errors?.['required'] && form.get('email')?.dirty) || (form.get('email')?.errors?.['email'])}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dni">DNI: <small *ngIf="(form.get('dni')?.errors?.['required'] && submitted) || (form.get('dni')?.errors?.['required'] && form.get('dni')?.dirty)" class="text-danger">El DNI es requerido *</small> </label>
+                                            <input type="text" name="dni" id="dni" formControlName="dni" class="form-control" placeholder="DNI..." [ngClass]="{'border-danger' : (form.get('dni')?.errors?.['required'] && submitted) || (form.get('dni')?.errors?.['required'] && form.get('dni')?.dirty)}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="address">Dirección: <small *ngIf="(form.get('address')?.errors?.['required'] && submitted) || (form.get('address')?.errors?.['required'] && form.get('address')?.dirty)" class="text-danger">La dirección es requerida *</small> </label>
+                                            <input type="text" name="address" id="address" formControlName="address" class="form-control" placeholder="Dirección..." [ngClass]="{'border-danger' : (form.get('address')?.errors?.['required'] && submitted) || (form.get('address')?.errors?.['required'] && form.get('address')?.dirty)}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Guardar</button>
+                                <a routerLink="/admin/customers" href="#" class="ml-1 btn btn-dark"><i class="fas fa-times"></i> Cancelar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
