@@ -8,6 +8,10 @@ import { CustomerIndexComponent } from './components/customer/customer-index/cus
 import { CustomerCreateComponent } from './components/customer/customer-create/customer-create.component';
 import { CustomerEditComponent } from './components/customer/customer-edit/customer-edit.component';
 import { CustomerShowComponent } from './components/customer/customer-show/customer-show.component';
+import { SupplierIndexComponent } from './components/supplier/supplier-index/supplier-index.component';
+import { SupplierCreateComponent } from './components/supplier/supplier-create/supplier-create.component';
+import { SupplierEditComponent } from './components/supplier/supplier-edit/supplier-edit.component';
+import { SupplierShowComponent } from './components/supplier/supplier-show/supplier-show.component';
 
 const routes: Routes = [
     {
@@ -49,6 +53,22 @@ const routes: Routes = [
                 component: CustomerShowComponent
             },
             {
+                path: 'suppliers',
+                component: SupplierIndexComponent
+            },
+            {
+                path: 'suppliers/create',
+                component: SupplierCreateComponent
+            },
+            {
+                path: 'suppliers/:id/edit',
+                component: SupplierEditComponent
+            },
+            {
+                path: 'suppliers/:id',
+                component: SupplierShowComponent
+            },
+            {
                 path: '**',
                 redirectTo: 'dashboard'
             }
@@ -64,5 +84,4 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

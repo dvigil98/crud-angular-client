@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <form action="#" method="post" [formGroup]="form" (ngSubmit)="search()">
+            <div class="card">
+                <div class="card-header d-flex align-items-center">
+                    <h3 class="card-title">Filtrar busqueda de clientes</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select name="critery" id="critery" formControlName="critery" class="form-control" [ngClass]="{'border-danger' : (form.get('critery')?.errors?.['required'] && submitted) || (form.get('critery')?.errors?.['required'] && form.get('critery')?.dirty)}">
+                                    <option value="" selected disabled hidden>Buscar por</option>
+                                    <option value="name">Nombre</option>
+                                    <option value="email">Email</option>
+                                    <option value="dni">DNI</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" name="value" id="value" formControlName="value" class="form-control" placeholder="Texto de busqueda..." [ngClass]="{'border-danger' : (form.get('value')?.errors?.['required'] && submitted) || (form.get('value')?.errors?.['required'] && form.get('value')?.dirty)}">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info btn-block"><i class="fas fa-search"></i> Buscar</button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-danger btn-block" (click)="clear()"><i class="fas fa-sync-alt"></i> Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

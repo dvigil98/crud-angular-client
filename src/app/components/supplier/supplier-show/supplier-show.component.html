@@ -1,0 +1,73 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="font-weight-bold">Proveedores</h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/admin/dashboard" href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/admin/suppliers" href="#">Lista de proveedores</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Detalles de proveedor</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="#" method="post">
+                        <div class="card">
+                            <div class="card-header d-flex align-items-center">
+                                <h3 class="card-title">Detalles de proveedor</h3>
+                                <a routerLink="/admin/suppliers/{{ supplier.id }}/edit" href="#" class="btn btn-light border ml-auto" title="Editar"><i class="fas fa-marker"></i> Editar</a>
+                                <button type="button" class="btn btn-light border ml-1" title="Eliminar" (click)="deleteSupplier(supplier.id)"><i class="fas fa-trash"></i> Eliminar</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <p class="text-muted mb-0">Id:</p>
+                                            <p>{{ supplier.id }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <p class="text-muted mb-0">Nombre:</p>
+                                            <p>{{ supplier.name }}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="text-muted mb-0">Teléfono:</p>
+                                            <p>{{ supplier.phone }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <p class="text-muted mb-0">Email:</p>
+                                            <p>{{ supplier.email }}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="text-muted mb-0">DNI:</p>
+                                            <p>{{ supplier.dni }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <p class="text-muted mb-0">Dirección:</p>
+                                            <p>{{ supplier.address }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

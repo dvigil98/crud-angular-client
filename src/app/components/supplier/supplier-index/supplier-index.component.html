@@ -1,0 +1,71 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="font-weight-bold">Proveedores</h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/admin/dashboard" href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Lista de proveedores</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <app-supplier-search (searchEvent)="searchSupplier($event)" (clearEvent)="clear()"></app-supplier-search>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                            <h3 class="card-title">Lista de proveedores</h3>
+                            <a routerLink="/admin/suppliers/create" href="#" class="btn btn-light border ml-auto"><i class="fas fa-plus-circle"></i> Agregar proveedor</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th>Id</th> -->
+                                            <th>Nombre</th>
+                                            <th>Teléfono</th>
+                                            <th>Email</th>
+                                            <th>DNI</th>
+                                            <th>Dirección</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr
+                                            *ngFor="let i of suppliers | paginate: { itemsPerPage: 10, currentPage: p }">
+                                            <!-- <td>{{ i.id }}</td> -->
+                                            <td>{{ i.name }}</td>
+                                            <td>{{ i.phone }}</td>
+                                            <td>{{ i.email }}</td>
+                                            <td>{{ i.dni }}</td>
+                                            <td>{{ i.address }}</td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <a routerLink="/admin/suppliers/{{ i.id }}" href="#" class="btn btn-light border" title="Ver"><i class="fas fa-info-circle"></i></a>
+                                                    <a routerLink="/admin/suppliers/{{ i.id }}/edit" href="#" class="btn btn-light border" title="Editar"><i class="fas fa-marker"></i></a>
+                                                    <button type="button" class="btn btn-light border" title="Eliminar" (click)="deleteSupplier(i.id)"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="suppliers.length == 0">
+                                            <td colspan="6" class="text-center">Datos no disponibles!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center">
+                            <pagination-controls (pageChange)="p = $event" [responsive]="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
